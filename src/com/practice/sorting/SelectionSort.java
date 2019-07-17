@@ -1,44 +1,47 @@
 package com.practice.sorting;
 
-import java.util.HashSet;
-import java.util.Hashtable;
+/*
+ * The selection sort algorithm sorts an array by repeatedly finding the minimum element 
+ * (considering ascending order) from unsorted part and putting it at the beginning. 
+ * The algorithm maintains two subarrays in a given array.
+ * 
+ * Time Complexity: O(n2) as there are two nested loops.
+ * Auxiliary Space: O(1)
+ * 
+ * The good thing about selection sort is it never makes more than O(n) 
+ * swaps and can be useful when memory write is a costly operation.
+*/
 
 public class SelectionSort {
 
 	public static void main(String[] args) {
-		int[] arr = {6,3,5,2,1,7};
-		int sumTotal = 4;
-		
+		int[] arr = { 6, 3, 5, 2, 1, 7 };
+
 		System.out.println("Before:");
-		for(int i : arr)
-			System.out.print(i+" ");
+		for (int i : arr)
+			System.out.print(i + " ");
 		System.out.println();
-		//Hashtable implementation
-		Hashtable<Integer,Integer> hTab = new Hashtable<Integer,Integer>();
-		for(int i=0; i<arr.length; i++) {
-			if(hTab.containsValue(sumTotal-arr[i]))
-				System.out.println("[Using HashTable] The pair is : "+(sumTotal-arr[i]) +" and "+arr[i]);
-			else
-				hTab.put((sumTotal-arr[i]),arr[i]);
+
+		int n = arr.length;
+
+		// One by one move boundary of unsorted subarray
+		for (int i = 0; i < n - 1; i++) {
+			// Find the minimum element in unsorted array
+			int min_idx = i;
+			for (int j = i + 1; j < n; j++)
+				if (arr[j] < arr[min_idx])
+					min_idx = j;
+
+			// Swap the found minimum element with the first
+			// element
+			int temp = arr[min_idx];
+			arr[min_idx] = arr[i];
+			arr[i] = temp;
 		}
 		
-		//Sorting implementation
-		for(int i=0; i<arr.length;i++) {
-			for(int j=0;j<arr.length;j++) {
-				if(sumTotal == (arr[i]+arr[j])) {
-					System.out.println("The pair is : "+arr[i] +" and "+arr[j]);
-				}
-			}
-		}
-		
-		//using HashSet
-		HashSet<Integer> hSet = new HashSet<Integer>();
-		for(int i=0; i<arr.length; i++) {
-			if(hSet.contains(sumTotal-arr[i]))
-				System.out.println("[Using HashSet] The pair is : "+(sumTotal-arr[i]) +" and "+arr[i]);
-			else
-				hSet.add((arr[i]));
-		}
+		System.out.println("After:");
+		for (int i : arr)
+			System.out.print(i + " ");
 	}
 
 }
