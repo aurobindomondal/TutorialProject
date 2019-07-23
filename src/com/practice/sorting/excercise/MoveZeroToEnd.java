@@ -11,20 +11,16 @@ public class MoveZeroToEnd {
 	public static void main(String[] args) {
 		int[] A = {2,3,0,3,0,1,0};
 		System.out.println("Before: "+Arrays.toString(A));
-		int low=-1;
-		int mid=-1;
-		int high=A.length;
+		int count=0;
 		
-		while(mid+1<high) {
-			if(A[mid+1]==0) {
-				int temp = A[mid+1];
-				A[mid+1]=A[high-1];
-				A[high-1]=temp;
-				high--;
+		for(int i=0;i<A.length;i++) {
+			if(A[i]!=0) {
+				int c= count++;
+				int temp=A[c];
+				A[c]=A[i];
+				A[i]=temp;
 			}
-			mid++;
 		}
 		System.out.println("After: "+Arrays.toString(A));
 	}
-
 }
