@@ -12,11 +12,10 @@ public class ArrayRotation {
     int d = 2, n =7;
 
     System.out.println("Start with: "+Arrays.toString(arr));
-    int[] temp = new int[d];
-    for(int i=0; i<d; i++){
-      temp[i] = arr[i]; 
-    }
-    System.out.println("Stored in temp: "+Arrays.toString(temp));
+    int[] temp=new int[arr.length];
+    for(int k=0;k<arr.length;k++)
+      temp[k]=arr[k];
+    System.out.println("Temp : "+Arrays.toString(temp));
 
     for(int i=0, j=d; i<n-d; i++, j++){
         arr[i]=arr[j];
