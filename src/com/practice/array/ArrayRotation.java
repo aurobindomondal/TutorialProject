@@ -1,3 +1,5 @@
+package com.practice.array;
+
 import java.util.Arrays;
 
 /*
