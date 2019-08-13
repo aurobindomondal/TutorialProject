@@ -1,0 +1,28 @@
+package com.practice.array;
+
+import java.util.Arrays;
+
+/*
+*Given an array, cyclically rotate the array clockwise by one.
+*Examples:
+*Input:  arr[] = {1, 2, 3, 4, 5}
+*Output: arr[] = {5, 1, 2, 3, 4}
+*/
+
+public class CircullarRotation {
+static int arr[] = new int[]{1, 2, 3, 4, 5};
+
+  public static void main(String[] args) {
+    rotate();
+  }
+    
+  static void rotate(){
+      System.out.println("Starting with: "+Arrays.toString(arr));
+      int temp = arr[arr.length-1];
+      for(int i=arr.length-1;i>0;i--){
+        arr[i]=arr[i-1];
+      }
+      arr[0]=temp;
+      System.out.println("Finishing with: "+Arrays.toString(arr));
+    } 
+}
