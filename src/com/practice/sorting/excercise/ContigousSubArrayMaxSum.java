@@ -12,6 +12,11 @@ public class ContigousSubArrayMaxSum {
 		
 		System.out.println("Before: "+ Arrays.toString(A));
 		
+		if(A.length==0){
+            return;
+        }else if(A.length==1){
+            return;
+        }
 		int max_so_far=0,max_ending_here=0;
 		for(int i=0;i<A.length;i++) {
 			max_ending_here=max_ending_here+A[i];

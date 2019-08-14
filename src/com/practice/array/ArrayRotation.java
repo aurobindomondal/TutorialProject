@@ -8,23 +8,31 @@ import java.util.Arrays;
 
 public class ArrayRotation {
   public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5, 6, 7};
-    int d = 2, n =7;
+    int[] nums = {1,2,3};//{1, 2, 3, 4, 5, 6};
+    int k = 4, n =nums.length;
 
-    System.out.println("Start with: "+Arrays.toString(arr));
-    int[] temp=new int[arr.length];
-    for(int k=0;k<arr.length;k++)
-      temp[k]=arr[k];
+    if(nums.length==0|| nums.length==1){
+        return;
+    }else if(k>nums.length)
+        k=k%n;
+    else if(k==0)
+        return;
+    
+    System.out.println("Start with: "+Arrays.toString(nums));
+    int[] temp=new int[nums.length];
+    for(int m=0;m<nums.length;m++)
+      temp[m]=nums[m];
+    
     System.out.println("Temp : "+Arrays.toString(temp));
 
-    for(int i=0, j=d; i<n-d; i++, j++){
-        arr[i]=arr[j];
+    for(int i=0, j=n-k; j<n; i++, j++){
+        nums[i]=nums[j];
     }
-    System.out.println("After reordering: "+Arrays.toString(arr));
+    System.out.println("After reordering: "+Arrays.toString(nums));
 
-    for(int k=n-d, l=0; k<n; k++,l++){
-      arr[k]=temp[l];
+    for(int j=k, l=0; l<n-k; j++,l++){
+      nums[j]=temp[l];
     }
-    System.out.println("Fianlly: "+Arrays.toString(arr));
+    System.out.println("Fianlly: "+Arrays.toString(nums));
   }
 }

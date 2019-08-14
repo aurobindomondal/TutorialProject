@@ -5,9 +5,12 @@ import java.util.Arrays;
 /*to make [0,3,4,4,6,30,31]*/
 public class MergeSortedArrays {
 
-	public static void main(String[] args) {
-		int[] arr1 = {0,3,4,31};
-		int[] arr2 = {4,6,30};
+	private static int[] merge(int[] arr1, int[] arr2) {
+		if(arr1.length==0 && arr2.length!=0) {
+			return arr2;
+		}else if(arr2.length==0 && arr1.length!=0) {
+			return arr1;
+		}
 		int maxCount=arr1.length+arr2.length;
 		int[] output = new int[arr1.length+arr2.length];
 		
@@ -34,9 +37,15 @@ public class MergeSortedArrays {
 				output[i]=arr2[arr2Index];
 				arr2Index++;
 			}
-			
+			//return output;
 		}
-		System.out.println(Arrays.toString(output));
+		return output;
+	}
+	public static void main(String[] args) {
+		int[] arr1 = {0,3,4,31};
+		int[] arr2 = {4,6,30};
+		
+		System.out.println(Arrays.toString(merge(arr1, arr2)));
 	}
 
 }
