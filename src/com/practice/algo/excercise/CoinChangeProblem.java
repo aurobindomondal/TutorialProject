@@ -11,7 +11,7 @@ public class CoinChangeProblem {
 		combination(a, buffer, 0, 0);
 	}
 
-	private static void combination(int[] a, int[] buffer, intstartIndexi, int bufferIndex) {
+	private static void combination(int[] a, int[] buffer, int startIndex, int bufferIndex) {
 		//termination case - buffer full
 		if(bufferIndex == buffer.length) {
 			System.out.println("[Aux Buffer]"+Arrays.toString(buffer));
@@ -27,6 +27,11 @@ public class CoinChangeProblem {
 			//recursion to next buffer index
 			printCombos(a, buffer, i+1, bufferIndex+1);
 		}
+		
+	}
+
+	private static void printCombos(int[] a, int[] buffer, int i, int j) {
+		// TODO Auto-generated method stub
 		
 	}
 
