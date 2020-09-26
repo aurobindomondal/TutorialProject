@@ -16,7 +16,9 @@ import java.util.Arrays;
 public class BubbleSort {
 
 	public static void main(String[] args) {
-		int[] arr = {5,1,4,2,8};
+		//int[] arr = {5,1,4,2,8};
+		//int[] arr = {5,2,3,1};
+		int[] arr = {5,1,1,2,0,0};
 		boolean swapped;
 		
 		System.out.println("Before:"+ Arrays.toString(arr));
